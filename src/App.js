@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 
-import { Stopwatch } from './components/Stopwatch';
+import { Stopwatch } from './components/Stopwatch/Stopwatch';
 
 const App = () => <Stopwatch />;
 

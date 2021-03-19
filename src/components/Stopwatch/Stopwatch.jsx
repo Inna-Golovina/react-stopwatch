@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { interval, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Buttons } from '../Buttons';
 
 import './Stopwatch.scss';
 
@@ -34,11 +35,6 @@ export const Stopwatch = () => {
     setStatus(false);
   };
 
-  const reset = () => {
-    setTime(0);
-    setStatus(true);
-  };
-
   const wait = () => {
     setCount(0);
     setCount(prevCount => prevCount + 1);
@@ -50,6 +46,11 @@ export const Stopwatch = () => {
     }, 300);
   };
 
+  const reset = () => {
+    setTime(0);
+    setStatus(true);
+  };
+
   return (
     <>
       <span>
@@ -58,43 +59,13 @@ export const Stopwatch = () => {
           {new Date(time).toISOString().substr(11, 8)}
         </p>
       </span>
-      <div className="wrapper">
-
-        { !status ? (
-          <button
-            type="button"
-            className="time-button"
-            onClick={start}
-          >
-            Start
-          </button>
-        ) : (
-          <button
-            type="button"
-            className="time-button"
-            onClick={stop}
-          >
-            Stop
-          </button>
-        )}
-
-        <button
-          type="button"
-          className="time-button"
-          onClick={wait}
-        >
-          Wait
-        </button>
-
-        <button
-          type="button"
-          className="time-button"
-          onClick={reset}
-        >
-          Reset
-        </button>
-
-      </div>
+      <Buttons
+        currentStatus={status}
+        onStart={start}
+        onStop={stop}
+        onReset={reset}
+        onWait={wait}
+      />
     </>
   );
 };
