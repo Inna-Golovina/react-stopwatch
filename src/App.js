@@ -3,6 +3,8 @@ import './App.scss';
 
 import { Stopwatch } from './components/Stopwatch/Stopwatch';
 
-const App = () => <Stopwatch />;
+const App = () => (
+  <Stopwatch />
+);
 
 export default App;
