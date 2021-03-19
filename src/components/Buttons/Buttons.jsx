@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Buttons.scss';
 
 export const Buttons = (props) => {
   const { currentStatus, onStart, onStop, onReset, onWait } = props;

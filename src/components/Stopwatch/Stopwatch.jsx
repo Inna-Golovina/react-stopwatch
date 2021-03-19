@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { interval, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Buttons } from '../Buttons';
-
 import './Stopwatch.scss';
 
 export const Stopwatch = () => {
@@ -55,7 +54,6 @@ export const Stopwatch = () => {
     <>
       <span>
         <p className="header">
-          {' '}
           {new Date(time).toISOString().substr(11, 8)}
         </p>
       </span>
