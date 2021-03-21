@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { interval, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Buttons } from '../Buttons';
@@ -26,13 +26,14 @@ export const Stopwatch = () => {
     };
   }, [status]);
 
-  const start = () => {
+  const start = useCallback(() => {
     setStatus(true);
-  };
+  }, []);
 
-  const stop = () => {
+  const stop = useCallback(() => {
+    setTime(0);
     setStatus(false);
-  };
+  }, []);
 
   const wait = () => {
     setCount(0);
